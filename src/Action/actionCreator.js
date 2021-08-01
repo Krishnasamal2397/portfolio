@@ -3,18 +3,34 @@ import {
   POST_USER_DETAIL_SUCCESS,
   POST_USER_DETAIL_FAIL,
 } from "./actionTypes";
+import axios from "axios";
 
-export const postuserdetailloading = (data) => {
-  console.log("step 2 is working",data)
-  return { type: POST_USER_DETAIL_LOADING, data: data };
+export const postUserDetailLoading = () => {
+  return { type: POST_USER_DETAIL_LOADING };
 };
-export const postuserdetailsuccess = (payload) => {
+export const postUserDetailSuccess = (payload) => {
   
   return { type: POST_USER_DETAIL_SUCCESS, payload: payload };
 };
-export const postuserdetailfail = (error) => {
+export const postUserDetailFail = (error) => {
   return { type: POST_USER_DETAIL_FAIL, error: error };
 };
-// export const fetchDog = () => {
-//   return { type: 'FETCHED_DOG' }
-// };
+const headers= {
+  "Accept": "application/json",
+  "Content-Type": "application/json",
+}
+
+export const PostUserDetail = (action) => {
+  console.log(action)
+  return (dispatch) => {
+    dispatch(postUserDetailLoading());
+    axios.post("http://localhost:3001/api/post", action,{headers})
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(postUserDetailSuccess(data));
+      })
+      .catch((err) => {
+        dispatch(postUserDetailFail(err));
+      });
+  };
+};

@@ -1,9 +1,8 @@
-#Profile_intro{
+#home{
     background: url(https://img.freepik.com/free-photo/dark-blue-plain-wall-background_53876-92976.jpg?size=626&ext=jpg&ga=GA1.2.1588707983.1617321600) no-repeat  100%/cover;
-    height: 90vh;
     color: #fff;
     opacity: 0.9;
-    padding: 5vh;
+    padding: 13vh 5vh 0vh 0vh;
 }
 
 #My_Name{
@@ -26,14 +25,17 @@
       bottom: 0;
     }
     50% {
-      bottom: 100px;
+      bottom: 50px;
     }
   }
 
 #myphoto{
     border-radius: 50%;
 }
-#About{
+#about{
+    background-color: gainsboro;
+}
+#contact{
     background-color: gainsboro;
 }
 #socialmedia{
@@ -66,7 +68,6 @@
     width: auto;
     height: auto;
     overflow: hidden;
-    /* border-radius: 50%; */
 }
 #Profile_intro_col_2 img {
     width: 100%;

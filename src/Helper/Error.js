@@ -1,17 +1,7 @@
-import React from "react";
-import { Result } from "antd";
-
-
-function Error(props) {
+export default function Error() {
   return (
     <div>
-      {/* <Result
-        status="error"
-        title="Oop's Something went Wrong here"
-      /> */}
-      <p>Something went worng</p>
+      <p>Something went wrong</p>
     </div>
   );
 }
-
-export default Error;

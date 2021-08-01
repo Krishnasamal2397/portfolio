@@ -1,22 +1,16 @@
 import React from "react";
-// import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { bindActionCreators,  } from "redux";
 import { Form, Input, Button, Row, Col } from "antd";
-import {postuserdetailloading} from '../../Action/actionCreator'
-// import { getData } from "../../Action/Apicall";
+import { PostUserDetail } from "../../Action/actionCreator";
+import {  useDispatch } from "react-redux";
 
-export function Index(props) {
+export function Index() {
+  const dispatch = useDispatch();
   const onFinish = (values) => {
-// getData(values)
-    // console.log("Success:", values);
-    // postuserdetailsuccess(values);
-    // props.postuserdetailsuccess(values)
-    postuserdetailloading(values)
+    dispatch(PostUserDetail(values));
   };
 
   const onFinishFailed = (errorInfo) => {
-    // console.log("Failed:", errorInfo);
+    //print the error message
   };
 
   return (
@@ -49,8 +43,8 @@ export function Index(props) {
           <Row>
             <Col span={24}>
               <Form.Item
-                label="Email"
-                name="Email"
+                label="email"
+                name="email"
                 rules={[
                   {
                     required: true,
@@ -82,8 +76,8 @@ export function Index(props) {
           <Row>
             <Col span={24}>
               <Form.Item
-                label="Comment"
-                name="Comment"
+                label="comment"
+                name="comment"
                 rules={[
                   {
                     required: true,
@@ -106,19 +100,6 @@ export function Index(props) {
   );
 }
 
-// const mapStateToProps = (state) => ({
-  
-// })
 
-const mapDispatchToProps = (Dispatch) => {
-  return { ...bindActionCreators(postuserdetailloading, Dispatch) };
-};
-// export const mapDispatchToProps = (dispatch) => {
-//   return {
-//     postuserdetailloading: (data) => dispatch(postuserdetailloading(data)),
-//       // glogin : (gresponse) => dispatch(glogin(gresponse)),
 
-//   };
-// };
-
-export default connect(null, mapDispatchToProps)(Index)
+export default Index;
